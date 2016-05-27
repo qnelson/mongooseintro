@@ -25,7 +25,12 @@
       </section>
       <section id="movies">
         <h1>Movie Listing</h1>
-          <ul id="movieList" ng-repeat="movie in movies">
+        <select ng-model="dropdown">
+          <option value="title" ng-model="dropdown">Title</option>
+          <option value="releaseDate" ng-model="dropdown">Release Date</option>
+          <option value="director" ng-model="dropdown">Director</option>
+        </select>
+          <ul id="movieList" ng-repeat="movie in movies | orderBy: dropdown">
             <li class="movie">
               <label for="title">Title:</label>
               <input type="text" id="movie" name="title" ng-model="movie.title" />
